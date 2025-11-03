@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IoIosSearch } from "react-icons/io";
 import { CiMenuFries } from "react-icons/ci";
 
 const Navbar = () => {
