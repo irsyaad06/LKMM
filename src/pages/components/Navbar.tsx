@@ -1,43 +1,78 @@
+import { useState } from "react";
+
+import { IoIosSearch } from "react-icons/io";
+import { CiMenuFries } from "react-icons/ci";
+
 const Navbar = () => {
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+
   return (
-    <header className="text-gray-600 body-font">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full"
-            viewBox="0 0 24 24"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-          </svg>
-          <span className="ml-3 text-xl">LKMM 2025</span>
+    <nav className="flex items-center justify-between w-full relative dark:bg-slate-900 bg-white rounded-full px-2.5 py-2.5">
+      <h1 className="dark:text-[#abc2d3] font-medium py-[7px] text-[1rem] px-4">
+        LKMM 2025
+      </h1>
+
+      {/* nav links */}
+      <ul className="items-center gap-5 text-[1rem] text-[#424242] md:flex hidden">
+        <a href="/" className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-0.5 before:transition-all before:duration-300 before:absolute relative before:rounded-full before:-bottom-0.5 dark:text-[#abc2d3] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
+          Beranda
         </a>
-        <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <a className="mr-5 hover:text-gray-900">Beranda</a>
-          <a className="mr-5 hover:text-gray-900">Time Line</a>
-          <a className="mr-5 hover:text-gray-900">Informasi</a>
-        </nav>
-        <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-          Daftar
-          <svg
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            className="w-4 h-4 ml-1"
-            viewBox="0 0 24 24"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
+
+        <a href="/informasi" className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-0.5 before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-0.5 dark:text-[#abc2d3] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
+          Informasi
+        </a>
+
+        <a href="/timeline" className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-0.5 before:transition-all before:duration-300 before:absolute relative before:rounded-full before:bottom-0.5 dark:text-[#abc2d3] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
+          Time Line
+        </a>
+      </ul>
+
+      {/* action buttons */}
+      <div className="">
+        <button className="py-[7px] text-[1rem] px-4 rounded-full capitalize bg-[#3B9DF8] text-white hover:bg-blue-400 transition-all duration-300 sm:flex hidden">
+          Daftar Sekarang
         </button>
+
+        <CiMenuFries
+          className="text-[1.8rem] dark:text-[#abc2d3] mr-1 text-[#424242]c cursor-pointer md:hidden flex"
+          onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+        />
       </div>
-    </header>
+
+      {/* mobile sidebar */}
+      <aside
+        className={` ${
+          mobileSidebarOpen
+            ? "translate-x-0 opacity-100 z-20"
+            : "translate-x-[200px] opacity-0 z-[-1]"
+        } md:hidden bg-white p-4 text-center absolute top-[65px] dark:bg-slate-700 right-0 w-full sm:w-[50%] rounded-md transition-all duration-300`}
+      >
+        <div className="relative mb-5">
+          <input
+            className="py-1.5 pr-4 dark:bg-slate-800 dark:text-[#abc2d3] dark:border-slate-900/50 w-full pl-10 rounded-full border border-gray-200 outline-none focus:border-[#3B9DF8]"
+            placeholder="Search..."
+          />
+          <IoIosSearch className="absolute dark:text-slate-400 top-2 left-3 text-gray-500 text-[1.3rem]" />
+        </div>
+        <ul className="items-center gap-5 text-[1rem] text-gray-600 flex flex-col">
+          <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-0.5 before:transition-all before:duration-300 before:absolute relative before:rounded-full before:-bottom-0.5 dark:text-[#abc2d3] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
+            home
+          </li>
+
+          <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-0.5 before:transition-all before:duration-300 before:absolute relative before:rounded-full before:-bottom-0.5 dark:text-[#abc2d3] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
+            features
+          </li>
+
+          <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-0.5 before:transition-all before:duration-300 before:absolute relative before:rounded-full before:-bottom-0.5 dark:text-[#abc2d3] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
+            blogs
+          </li>
+
+          <li className="before:w-0 hover:before:w-full before:bg-[#3B9DF8] before:h-0.5 before:transition-all before:duration-300 before:absolute relative before:rounded-full before:-bottom-0.5 dark:text-[#abc2d3] hover:text-[#3B9DF8] transition-all duration-300 before:left-0 cursor-pointer capitalize">
+            shop
+          </li>
+        </ul>
+      </aside>
+    </nav>
   );
 };
 
