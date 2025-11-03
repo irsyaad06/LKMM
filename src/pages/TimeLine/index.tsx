@@ -20,7 +20,7 @@ const Timeline = () => {
           >
             {/* Icon */}
             <div
-              className={`absolute top-1/2 transform -translate-y-1/2 bg-white text-white rounded-full p-3 border-4 border-white dark:border-slate-700 z-20 
+              className={`absolute top-1/2 transform -translate-y-1/2 bg-slate-700 text-white rounded-full p-3 border-4 border-white dark:border-slate-700 z-20 
               ${
                 index % 2 === 0
                   ? "right-[-25px]" // 🔹 ikon sisi kanan
@@ -51,7 +51,7 @@ const Timeline = () => {
         {TimelineData.map((milestone, index) => (
           <div key={index} className="mb-10 relative pl-10">
             {/* Icon */}
-            <div className="absolute top-2 -left-[22px] bg-white text-white rounded-full p-2 border-2 border-white dark:border-slate-700 z-10">
+            <div className="absolute top-2 -left-[22px] bg-slate-700 text-white rounded-full p-2 border-2 border-white dark:border-slate-700 z-10">
               {milestone.icon}
             </div>
 
