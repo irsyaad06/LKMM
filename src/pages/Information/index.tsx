@@ -22,7 +22,7 @@ const accordionItems: AccordionItem[] = [
         <li>Curriculum Vitae (CV).</li>
         <li>
           Surat Keterangan Aktif Mahasiswa.{" "}
-          <span className="italic text-sm text-gray-500">
+          <span className="italic text-sm text-slate-400">
             (Didapatkan di student admission –{" "}
             <a
               href="mailto:admisi@email.unikom.ac.id"
@@ -37,7 +37,7 @@ const accordionItems: AccordionItem[] = [
         <li>Minimal IPK harus 2.75.</li>
         <li>
           Mengumpulkan transkrip nilai.{" "}
-          <span className="italic text-sm text-gray-500">
+          <span className="italic text-sm text-slate-400">
             (Didapatkan di{" "}
             <a
               href="https://mahasiswa.unikom.ac.id"
@@ -110,10 +110,12 @@ const accordionItems: AccordionItem[] = [
           <FaExternalLinkAlt />
           Buka Formulir Pendaftaran
         </a>
-        <p className="text-sm text-gray-400 flex items-center gap-2">
-          <FaEnvelope className="text-gray-400" /> Gunakan email UNIKOM saat
+        <p className="text-sm text-slate-400 flex items-center gap-2">
+          <FaEnvelope className="text-slate-400" /> Gunakan email UNIKOM saat
           mengisi formulir (contoh:{" "}
-          <span className="font-mono text-gray-300">namamu@mahasiswa.unikom.ac.id</span>
+          <span className="font-mono text-slate-300">
+            namamu@mahasiswa.unikom.ac.id
+          </span>
           )
         </p>
       </div>
@@ -135,7 +137,7 @@ const Information: React.FC = () => {
         {accordionItems.map((item, index) => (
           <motion.div
             key={item.id}
-            className="rounded-lg dark:bg-slate-800 dark:border-slate-700 bg-gray-50 border border-gray-200 overflow-hidden"
+            className="rounded-lg bg-slate-800 border border-slate-700 overflow-hidden shadow-md shadow-slate-900/30"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -145,8 +147,8 @@ const Information: React.FC = () => {
             <motion.button
               className={`${
                 activeId === item.id
-                  ? "text-gray-800 dark:text-[#d2e5f5]"
-                  : "text-gray-600 dark:text-[#d2e5f5]/60"
+                  ? "text-[#d2e5f5]"
+                  : "text-[#d2e5f5]/60"
               } w-full p-4 text-left font-medium text-lg flex justify-between items-center`}
               onClick={() => toggleAccordion(item.id)}
             >
@@ -170,15 +172,14 @@ const Information: React.FC = () => {
             <AnimatePresence>
               {activeId === item.id && (
                 <motion.div
-                  className="overflow-hidden dark:bg-slate-800 bg-gray-50"
+                  className="overflow-hidden bg-slate-800"
                   initial={{ height: 0 }}
                   animate={{ height: "auto" }}
                   exit={{ height: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="px-6 pb-6 dark:text-[#d2e5f5] text-gray-800 relative">
+                  <div className="px-6 pb-6 text-[#d2e5f5] relative">
                     {item.content}
-
                     <motion.div
                       className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${item.color}`}
                       initial={{ width: 0 }}

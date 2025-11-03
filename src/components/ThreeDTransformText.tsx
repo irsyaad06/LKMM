@@ -65,7 +65,7 @@ const ThreeDTransformText: React.FC<ThreeDTransformTextProps> = ({ text }) => {
       initial="hidden"
       animate={controls}
       exit="exit"
-      className="text-3xl md:text-5xl text-center font-bold dark:text-[#d2e5f5]"
+      className="text-3xl md:text-5xl text-center font-bold text-[#d2e5f5]"
       style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
     >
       {text.split("").map((char, i) => (

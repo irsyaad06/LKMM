@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+/* 🔧 Hilangkan semua scrollbar (horizontal & vertical) */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer & Edge lama */
+}
+
+/* Chrome, Safari, Edge (berbasis Chromium) */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Opsional: pastikan tidak bisa scroll horizontal */
+html, body {
+  overflow-x: hidden;
+}
